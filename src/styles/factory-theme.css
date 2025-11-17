@@ -1,0 +1,312 @@
+/* Factory OS - N64 Gaming Theme Overrides for 98.css */
+
+:root {
+  /* N64 Dark Color Palette */
+  --surface: #2a2a3e;
+  --surface-light: #3a3a52;
+  --surface-dark: #1a1a2e;
+  --button-face: #3a3a52;
+  --button-highlight: #4a4a62;
+  --button-shadow: #1a1a2e;
+
+  /* Neon Accents */
+  --neon-blue: #5d5dff;
+  --neon-cyan: #5dffff;
+  --neon-purple: #bd5dff;
+  --neon-green: #5dff5d;
+  --neon-yellow: #ffff5d;
+  --neon-red: #ff5d5d;
+
+  /* Text */
+  --text: #ffffff;
+  --text-dim: #b0b0c0;
+  --text-glow: #5dffff;
+
+  /* Desktop */
+  --desktop-bg: #1a1a2e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--desktop-bg);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: var(--text);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* Override 98.css defaults */
+.window {
+  background: var(--surface);
+  border: 2px solid var(--surface-light);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.window.active {
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 30px rgba(93, 93, 255, 0.6);
+}
+
+.title-bar {
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+  color: var(--text);
+  padding: 4px 6px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: move;
+}
+
+.title-bar-text {
+  flex: 1;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+.title-bar-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.title-bar-controls button {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  min-width: unset;
+  font-size: 8px;
+  background: var(--button-face);
+  border: 1px outset var(--button-highlight);
+  color: var(--text);
+}
+
+.title-bar-controls button:hover {
+  background: var(--button-highlight);
+  box-shadow: 0 0 10px rgba(93, 255, 255, 0.4);
+}
+
+.title-bar-controls button:active {
+  border-style: inset;
+}
+
+.window-body {
+  background: var(--surface);
+  color: var(--text);
+  margin: 0;
+  padding: 8px;
+  overflow: auto;
+}
+
+/* Buttons */
+button {
+  background: var(--button-face);
+  border: 2px outset var(--button-highlight);
+  color: var(--text);
+  padding: 6px 12px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  background: var(--button-highlight);
+  box-shadow: 0 0 10px rgba(93, 255, 255, 0.3);
+}
+
+button:active:not(:disabled) {
+  border-style: inset;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.primary {
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+  border-color: var(--neon-blue);
+  font-weight: bold;
+}
+
+button.primary:hover:not(:disabled) {
+  box-shadow: 0 0 15px rgba(93, 93, 255, 0.6);
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"],
+textarea {
+  background: var(--surface-dark);
+  border: 2px inset var(--button-shadow);
+  color: var(--neon-cyan);
+  padding: 6px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 10px rgba(93, 255, 255, 0.4);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-dark);
+  border: 1px solid var(--button-shadow);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--button-face);
+  border: 2px outset var(--button-highlight);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--button-highlight);
+  box-shadow: 0 0 5px rgba(93, 255, 255, 0.3);
+}
+
+/* Status bar */
+.status-bar {
+  background: var(--surface-light);
+  border-top: 2px solid var(--button-highlight);
+  padding: 4px 8px;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-dim);
+}
+
+.status-bar-field {
+  padding: 2px 6px;
+  border: 1px inset var(--button-shadow);
+  background: var(--surface-dark);
+  flex: 1;
+}
+
+/* Field sets */
+fieldset {
+  border: 2px groove var(--button-highlight);
+  background: var(--surface);
+  padding: 12px;
+  margin: 8px 0;
+}
+
+legend {
+  padding: 0 6px;
+  color: var(--text);
+  font-size: 10px;
+}
+
+/* Tree view */
+.tree-view {
+  background: var(--surface);
+  border: 2px inset var(--button-shadow);
+  padding: 8px;
+}
+
+.tree-view ul {
+  list-style: none;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.tree-view li {
+  padding: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tree-view li:hover {
+  background: var(--button-highlight);
+  color: var(--neon-cyan);
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid var(--button-shadow);
+}
+
+th {
+  background: var(--surface-light);
+  color: var(--neon-cyan);
+  font-size: 9px;
+  font-weight: normal;
+}
+
+td {
+  font-size: 9px;
+}
+
+tr:hover {
+  background: var(--button-highlight);
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 8px;
+  border-radius: 2px;
+  border: 1px solid;
+}
+
+.badge.success {
+  background: var(--neon-green);
+  border-color: #4dcd4d;
+  color: #000;
+}
+
+.badge.warning {
+  background: var(--neon-yellow);
+  border-color: #e6e64d;
+  color: #000;
+}
+
+.badge.error {
+  background: var(--neon-red);
+  border-color: #e64d4d;
+  color: #000;
+}
+
+.badge.info {
+  background: var(--neon-cyan);
+  border-color: #4de6e6;
+  color: #000;
+}
+
+.badge.coming-soon {
+  background: var(--neon-purple);
+  border-color: #a64de6;
+  color: #000;
+}
