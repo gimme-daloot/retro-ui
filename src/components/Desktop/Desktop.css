@@ -1,0 +1,22 @@
+/* Desktop Styles */
+
+.desktop {
+  width: 100%;
+  height: calc(100vh - 40px); /* Leave space for taskbar */
+  position: relative;
+  overflow: hidden;
+}
+
+.desktop-icons {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px;
+  height: 100%;
+  align-content: flex-start;
+}
+
+.desktop.scanline-effect {
+  position: relative;
+}

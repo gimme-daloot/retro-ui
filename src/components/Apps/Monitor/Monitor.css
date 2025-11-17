@@ -1,0 +1,131 @@
+/* System Monitor App Styles */
+
+.monitor-app {
+  height: 100%;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--surface);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.metric-card {
+  background: var(--surface-light);
+  border: 2px solid var(--button-highlight);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+}
+
+.metric-card.metric-cyan {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 10px rgba(93, 255, 255, 0.2);
+}
+
+.metric-card.metric-blue {
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 10px rgba(93, 93, 255, 0.2);
+}
+
+.metric-card.metric-green {
+  border-color: var(--neon-green);
+  box-shadow: 0 0 10px rgba(93, 255, 93, 0.2);
+}
+
+.metric-card.metric-purple {
+  border-color: var(--neon-purple);
+  box-shadow: 0 0 10px rgba(189, 93, 255, 0.2);
+}
+
+.metric-icon {
+  font-size: 32px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.metric-info {
+  flex: 1;
+}
+
+.metric-label {
+  font-size: 8px;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+
+.metric-value {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--text);
+}
+
+.monitor-section {
+  margin: 0;
+}
+
+.monitor-section legend {
+  font-size: 11px;
+  color: var(--neon-cyan);
+}
+
+.activity-log {
+  max-height: 200px;
+  overflow-y: auto;
+  background: var(--surface-dark);
+  padding: 12px;
+  border: 2px inset var(--button-shadow);
+  font-size: 8px;
+  line-height: 1.8;
+}
+
+.log-entry {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+  padding: 4px;
+  border-left: 2px solid transparent;
+}
+
+.log-entry.log-info {
+  border-left-color: var(--neon-cyan);
+}
+
+.log-entry.log-success {
+  border-left-color: var(--neon-green);
+}
+
+.log-entry.log-warning {
+  border-left-color: var(--neon-yellow);
+}
+
+.log-entry.log-error {
+  border-left-color: var(--neon-red);
+}
+
+.log-time {
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+
+.log-event {
+  color: var(--text);
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
